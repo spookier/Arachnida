@@ -24,4 +24,5 @@ python3 spider.py -p "images" https://github.com/spookier
 ```
 ![image](https://github.com/spookier/arachnida/assets/77325667/09e65029-9ea6-45c6-a17c-78059e7dc569)
 
+![image](https://github.com/spookier/arachnida/assets/77325667/7dffcef5-1ca6-4d91-bde3-5089d80f3384)
 

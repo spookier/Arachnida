@@ -5,7 +5,6 @@ import argparse
 import re
 import urllib.parse
 
-
 parser = argparse.ArgumentParser(description="A script for downloading images.", epilog="Example usage: python3 spider.py -p 'images' https://github.com/spookier")
 parser.add_argument("-r", action="store_true", help="recursively download images")
 parser.add_argument("-l", metavar="DEPTH", type=int, default=5, help="maximum depth level of the recursive download")
@@ -48,14 +47,12 @@ def save_image(img_url, download_path):
 	else:
 		print(f"Error. Image found but failed to download. {img_url}")
 
-
 def abs_to_relative_url(url_data, url):
 	if url.startswith("http") or url.startswith("https"):
 		return (url)
 	else:
 		url = urllib.parse.urljoin(url_data.url, url)
 		return (url)
-
 
 def download_images(url_data, recursive_download, level_depth, download_path):
 	extensions = [".jpg", ".jpeg", ".png", ".gif", ".bmp"]

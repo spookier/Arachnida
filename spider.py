@@ -1,9 +1,6 @@
 from utils import *
 
-# TO DO: Add -r flag
-
 def execute_program():
-    
 	options = parser.parse_args()
     
     # Default options
@@ -23,9 +20,12 @@ def execute_program():
 	if options.p:
 		download_path = options.p
 		make_folder(download_path)
-  
+	
 	url_data = get_link_data(url)
-	download_images(url_data, recursive_download, level_depth, download_path)
+	image_count = download_images(url_data, recursive_download, level_depth, download_path)
+	print("--------------------------------------")
+	print(f"Total images found = [{image_count}]")
+	print("--------------------------------------")
 
 
 def main():

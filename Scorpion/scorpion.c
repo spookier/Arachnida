@@ -1,18 +1,5 @@
 #include "scorpion.h"
 
-
-int detect_image_extension(t_all *all)
-{
-	if (check_if_jpg(all) == 1)
-		all->img_type = 0;
-	else
-	{
-		printf("Error. Wrong or unsupported image extension.\n");
-		return(-1);
-	}
-	return(0);
-}
-
 /* -------------------------------------------
 	TODO: Parse the following extensions:
 
@@ -21,6 +8,23 @@ int detect_image_extension(t_all *all)
 * 3 .gif
 * 4 .bmp
 ------------------------------------------- */
+
+
+int detect_image_extension(t_all *all)
+{
+	if (check_if_jpg(all) == 1)
+	{
+		all->img_type = 0;
+		find_exif_jpg(all);
+	}
+	else
+	{
+		printf("Error. Wrong or unsupported image extension.\n");
+		return(-1);
+	}
+	return(0);
+}
+
 
 int main(int argc, char **argv)
 {
@@ -40,6 +44,8 @@ int main(int argc, char **argv)
 
 	if (detect_image_extension(all) == -1)
 		return(-1);
+
+	// TODO: Free everything before program ends
 
 	return(0);
 }

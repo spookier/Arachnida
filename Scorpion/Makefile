@@ -6,6 +6,7 @@ CFLAGS = -Wall -Wextra -Werror
 FILES = scorpion.c \
 		mem.c \
 		jpeg_parse.c \
+		exif.c \
 
 OBJ = $(FILES:.c=.o)
 

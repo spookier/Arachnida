@@ -8,7 +8,9 @@
 
 typedef struct s_ExifParse
 {
-    size_t start_addr;
+    size_t  start_addr;
+    int     little_endian;
+    int     IFD_entries;
 
 }   t_ExifParse;
 
@@ -53,6 +55,7 @@ typedef struct s_all
 
     t_ExifData      exif_data;
     t_ExifParse     exif_parse;
+    
 } t_all;
 
 
@@ -65,5 +68,8 @@ int     init_structure(t_all **structure);
 // JPG Processing
 int       check_if_jpg(t_all *all);
 int       find_exif_jpg(t_all *all);
+int       get_endianness(t_all *all, int start);
+unsigned  int read_bytes(t_all *all, int start, int length, int little_endian);
+
 
 #endif

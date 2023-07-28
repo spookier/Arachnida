@@ -16,6 +16,8 @@ int detect_image_extension(t_all *all)
 	{
 		all->img_type = 0;
 		find_exif_jpg(all);
+		if(get_endianness(all, all->exif_parse.start_addr) == -1)
+			return(-1);
 	}
 	else
 	{

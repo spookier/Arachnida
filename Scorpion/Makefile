@@ -14,8 +14,7 @@ all: $(NAME)
 	
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
-	@echo '~ Scorpion is ready to sting!'
+	@ $(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
